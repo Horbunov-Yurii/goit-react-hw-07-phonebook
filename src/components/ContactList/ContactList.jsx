@@ -19,11 +19,11 @@ export const ContactsList = () => {
   );
 
   return (
-    <ul>
+    <ul style={{listStyle:"none"}}>
       {filteredContacts.map(({ id, name, number }) => (
         <li key={id}>
           {name} : {number}
-          <button onClick={() => dispatch(deleteContact(id))}>delete</button>
+          <button style={{background:"red",marginLeft: 10}} onClick={() => dispatch(deleteContact(id))}>delete</button>
         </li>
       ))}
     </ul>

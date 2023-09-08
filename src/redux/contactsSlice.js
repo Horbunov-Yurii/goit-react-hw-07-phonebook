@@ -25,7 +25,8 @@ const contactSlice = createSlice({
       state.isLoading = true;
     },
     [addContact.fulfilled]: (state, action) => {
-      state.items = [...state.items, action.payload];
+      state.items.unshift(action.payload)
+      // state.items = [...state.items, action.payload];
       state.isLoading = false;
     },
     [addContact.rejected]: (state, action) => {

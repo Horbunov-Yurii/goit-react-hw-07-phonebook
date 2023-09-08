@@ -8,7 +8,7 @@ import { addContact } from 'redux/operations';
 export const Form = () => {
      const dispatch = useDispatch();
     const contacts = useSelector(getContacts);
-
+  
     const hendleSubmit = event => {
       event.preventDefault();
 
@@ -17,24 +17,19 @@ export const Form = () => {
         name: event.currentTarget.elements.name.value,
         number: event.currentTarget.elements.number.value,
       };
-
+    
        const isExist = contacts.find(
          ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
        );
-
     
        if (isExist) {
          return alert(`${contact.name} is already in contacts.`);
        }
 
       dispatch(addContact(contact));
-
       event.currentTarget.reset();
     };
   
-
-  
-
   return (
     <form onSubmit={hendleSubmit}>
       <h2>Phoneboock</h2>
@@ -62,7 +57,7 @@ export const Form = () => {
         />
       </label>
       <br />
-      <button type="submit">Add contact</button>
+      <button style={{background:"blue"}} type="submit">Add contact</button>
     </form>
   );
 };
